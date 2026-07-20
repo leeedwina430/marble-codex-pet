@@ -1,0 +1,44 @@
+{
+  "name": "marble-codex-pet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Install Marble, a Codex v2 animated desktop pet.",
+  "type": "module",
+  "bin": {
+    "codex-pets": "bin/codex-pets.js"
+  },
+  "files": [
+    "bin/",
+    "src/",
+    "marble/",
+    "README.md",
+    "LICENSE",
+    "ASSET_LICENSE.md"
+  ],
+  "scripts": {
+    "test": "node --test",
+    "pack:check": "npm pack --dry-run"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leeedwina430/marble-codex-pet.git"
+  },
+  "homepage": "https://github.com/leeedwina430/marble-codex-pet#readme",
+  "bugs": {
+    "url": "https://github.com/leeedwina430/marble-codex-pet/issues"
+  },
+  "keywords": [
+    "codex",
+    "codex-pet",
+    "custom-pet",
+    "desktop-pet",
+    "cat",
+    "pet",
+    "spritesheet"
+  ],
+  "author": "Zack Lee",
+  "license": "SEE LICENSE IN LICENSE"
+}

@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+*.tgz
+npm-debug.log*
+coverage/
+
+# Never publish private source or Hatch Pet working materials.
+IMG_*
+character-*
+marble-hatch-pet-run/
+assets/marble-animation-sheet.png
+*.HEIC
+*.heic
