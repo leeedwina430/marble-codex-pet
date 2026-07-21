@@ -1,0 +1,29 @@
+name: release smoke
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/release-smoke.yml
+
+permissions:
+  contents: read
+
+jobs:
+  install-v1:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install the public v1.0.0 release
+        env:
+          CODEX_HOME: ${{ runner.temp }}/codex-home
+        run: |
+          npx --yes github:${{ github.repository }}#v1.0.0 add marble
+          npx --yes github:${{ github.repository }}#v1.0.0 add marble
+          test -f "$CODEX_HOME/pets/marble/pet.json"
+          test -f "$CODEX_HOME/pets/marble/spritesheet.webp"
+          test "$(sha256sum "$CODEX_HOME/pets/marble/spritesheet.webp" | cut -d' ' -f1)" = "4ff62fe39d2db6a4dbabb36cdc3b57fc7cab8cf993752608c680a461bd4bbe21"
+          node -e "const p = require(process.env.CODEX_HOME + '/pets/marble/pet.json'); if (p.id !== 'marble' || p.spriteVersionNumber !== 2) process.exit(1)"
